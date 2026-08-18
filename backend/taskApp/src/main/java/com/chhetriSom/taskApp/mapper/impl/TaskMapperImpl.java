@@ -1,8 +1,10 @@
 package com.chhetriSom.taskApp.mapper.impl;
 
 import com.chhetriSom.taskApp.domain.CreateTaskRequest;
+import com.chhetriSom.taskApp.domain.UpdateTaskRequest;
 import com.chhetriSom.taskApp.domain.dto.CreateTaskRequestDto;
 import com.chhetriSom.taskApp.domain.dto.TaskDto;
+import com.chhetriSom.taskApp.domain.dto.UpdateTaskRequestDto;
 import com.chhetriSom.taskApp.domain.entity.Task;
 import com.chhetriSom.taskApp.mapper.TaskMapper;
 import org.springframework.stereotype.Component;
@@ -17,6 +19,17 @@ public class TaskMapperImpl implements TaskMapper {
           dto.description(),
           dto.dueDate(),
           dto.priority()
+        );
+    }
+
+    @Override
+    public UpdateTaskRequest fromDto(UpdateTaskRequestDto dto) {
+        return new UpdateTaskRequest(
+            dto.title(),
+            dto.description(),
+            dto.dueDate(),
+            dto.status(),
+            dto.priority()
         );
     }
 
